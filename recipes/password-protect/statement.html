@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Account statement</title>
+  <style>
+    @page { size: A4; margin: 20mm; }
+    body { font-family: Helvetica, Arial, sans-serif; font-size: 11pt; color: #1f2937; }
+    h1 { font-size: 22pt; margin: 0 0 6pt 0; }
+    .meta { color: #6b7280; margin-bottom: 18pt; }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; border-bottom: 1.5pt solid #1f2937; padding: 6pt 4pt; }
+    td { border-bottom: 0.5pt solid #d1d5db; padding: 6pt 4pt; }
+    td.amount, th.amount { text-align: right; }
+  </style>
+</head>
+<body>
+  <h1>Account statement</h1>
+  <p class="meta">{{$fields.customer}} &#8211; {{format(date($fields.statementDate), 'dd MMMM yyyy')}}</p>
+  <table>
+    <thead><tr><th>Description</th><th class="amount">Amount</th></tr></thead>
+    <tbody>
+      {{#each statement.lines}}
+      <tr><td>{{this.description}}</td><td class="amount">{{format(this.amount, 'N2')}}</td></tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <p><strong>Balance: {{format(sumOf(statement.lines, .amount), 'N2')}}</strong></p>
+</body>
+</html>

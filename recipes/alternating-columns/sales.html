@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Sales by quarter</title>
+  <style>
+    @page { size: A4; margin: 20mm; }
+    body { font-family: Helvetica, Arial, sans-serif; font-size: 11pt; color: #1f2937; }
+    h1 { font-size: 20pt; margin: 0 0 12pt 0; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 7pt 8pt; text-align: right; }
+    th:first-child, td:first-child { text-align: left; }
+    thead th { border-bottom: 1.5pt solid #1f2937; }
+
+    /* Every odd column is shaded, every even column is left plain */
+    th:nth-child(odd), td:nth-child(odd) { background-color: #eef2f7; }
+    th:nth-child(even), td:nth-child(even) { background-color: #ffffff; }
+
+    /* A different colour for the numbers in the even columns */
+    td:nth-child(even) { color: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <h1>Sales by quarter, {{sales.year}}</h1>
+  <table>
+    <thead>
+      <tr><th>Region</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+    </thead>
+    <tbody>
+      {{#each sales.regions}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{format(this.q1, 'N0')}}</td>
+        <td>{{format(this.q2, 'N0')}}</td>
+        <td>{{format(this.q3, 'N0')}}</td>
+        <td>{{format(this.q4, 'N0')}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</body>
+</html>

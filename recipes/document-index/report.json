@@ -1,0 +1,9 @@
+{
+  "title": "Annual review 2026",
+  "sections": [
+    { "id": "summary", "title": "Summary", "text": "The year in brief: revenue grew, costs held, and three new offices opened." },
+    { "id": "revenue", "title": "Revenue", "text": "Revenue by region and by quarter, with the main changes from the year before." },
+    { "id": "costs", "title": "Costs", "text": "Operating costs, with the largest items listed first." },
+    { "id": "outlook", "title": "Outlook", "text": "Plans and risks for 2027." }
+  ]
+}

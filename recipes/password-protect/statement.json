@@ -1,0 +1,7 @@
+{
+  "lines": [
+    { "description": "Opening balance", "amount": 1200.00 },
+    { "description": "Payment received", "amount": -450.00 },
+    { "description": "Consulting, March", "amount": 980.50 }
+  ]
+}
